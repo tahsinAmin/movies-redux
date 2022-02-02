@@ -73,6 +73,20 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 - [React-router-dom's Switch has changed to Routes.](https://stackoverflow.com/questions/63124161/attempted-import-error-switch-is-not-exported-from-react-router-dom)
 
+- We want to run thew useEffect whenever we change the id:
+
+```
+useEffect(() => {
+    dispatch(fetchAsyncMovieOrShowDetail(imdbID));
+  }, [dispatch, imdbID]);
+```
+
+- createSlice, createAsyncThunk
+
 # Things to learn later
 
 - [ ] extraReducers
+
+# Questions
+
+- what is ".pending" in extraReducers?
