@@ -4,7 +4,7 @@ import user from "../images/user.png";
 
 export default function Header() {
   return (
-    <div className="header bg-gray-700 height-[72px] px-[0px] py-[40px] flex items-center justify-around">
+    <div className="header containerbg-gray-700 height-[72px] px-[40px] py-[20px] flex items-center justify-between">
       <Link to="/">
         <div className="logo text-white text-2xl font-semibold">Movie App</div>
       </Link>

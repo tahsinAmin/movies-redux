@@ -1,8 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialstate = {
-  movies: [],
+const initialState = {
+  movies: {},
 };
+
 // Inside the reducers, we create actions, basically functional methods
 const movieSlice = createSlice({
   name: "movies",
