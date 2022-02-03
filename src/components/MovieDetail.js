@@ -15,53 +15,61 @@ export default function MovieDetail() {
 
   return (
     <div className="movie-section text-white flex justify-evenly px-[40px] py-0 font-semibold">
-      <div className="section-left">
-        <div className="movie-title">{data.Title}</div>
-        <div className="movie-rating pl-[3px] mt-[20px] text-indigo-300 flex space-x-4">
-          <span className="text-xl">
-            IMDB Rating <i className="fa fa-star text-orange-300"></i> :{" "}
-            {data.imdbRating}
-          </span>
-          <span className="text-xl">
-            IMDB Votes <i className="fa fa-thumbs-up text-white"></i> :{" "}
-            {data.imdbVotes}
-          </span>
-          <span className="text-xl">
-            Runtime <i className="fa fa-film text-gray-300"></i> :{" "}
-            {data.Runtime}
-          </span>
-          <span className="text-xl">
-            Year <i className="fa fa-calendar text-orange-300"></i> :{" "}
-            {data.Year}
-          </span>
-        </div>
-        <div className="movie-plot mt-[20px] leading-7 mb-10">{data.Plot}</div>
-        <div className="movie-info">
-          <div>
-            <span className=" text-indigo-300">Director: </span>
-            <span>{data.Director}</span>
+      {Object.keys(data).length === 0 ? (
+        <div>Loading...</div>
+      ) : (
+        <>
+          <div className="section-left w-10/12">
+            <div className="movie-title text-3xl">{data.Title}</div>
+            <div className="movie-rating pl-[3px] mt-[20px] text-indigo-300 flex space-x-4">
+              <span className="text-xl">
+                IMDB Rating <i className="fa fa-star text-orange-300"></i> :{" "}
+                {data.imdbRating}
+              </span>
+              <span className="text-xl">
+                IMDB Votes <i className="fa fa-thumbs-up text-white"></i> :{" "}
+                {data.imdbVotes}
+              </span>
+              <span className="text-xl">
+                Runtime <i className="fa fa-film text-gray-300"></i> :{" "}
+                {data.Runtime}
+              </span>
+              <span className="text-xl">
+                Year <i className="fa fa-calendar text-orange-300"></i> :{" "}
+                {data.Year}
+              </span>
+            </div>
+            <div className="movie-plot mt-[20px] leading-7 mb-10">
+              {data.Plot}
+            </div>
+            <div className="movie-info">
+              <div>
+                <span className=" text-indigo-300">Director: </span>
+                <span>{data.Director}</span>
+              </div>
+              <div>
+                <span className=" text-indigo-300">Stars: </span>
+                <span>{data.Actors}</span>
+              </div>
+              <div>
+                <span className=" text-indigo-300">Genres: </span>
+                <span>{data.Genre}</span>
+              </div>
+              <div>
+                <span className=" text-indigo-300">Languages: </span>
+                <span>{data.Language}</span>
+              </div>
+              <div>
+                <span className=" text-indigo-300">Awards: </span>
+                <span>{data.Awards}</span>
+              </div>
+            </div>
           </div>
-          <div>
-            <span className=" text-indigo-300">Stars: </span>
-            <span>{data.Actors}</span>
+          <div className="section-right ml-[30px] w-2/12">
+            <img loading="lazy" src={data.Poster} alt={data.Title} />
           </div>
-          <div>
-            <span className=" text-indigo-300">Genres: </span>
-            <span>{data.Genre}</span>
-          </div>
-          <div>
-            <span className=" text-indigo-300">Languages: </span>
-            <span>{data.Language}</span>
-          </div>
-          <div>
-            <span className=" text-indigo-300">Awards: </span>
-            <span>{data.Awards}</span>
-          </div>
-        </div>
-      </div>
-      <div className="section-right ml-[30px]">
-        <img src={data.Poster} alt={data.Title} />
-      </div>
+        </>
+      )}
     </div>
   );
 }

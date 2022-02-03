@@ -2,8 +2,15 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { getAllMovies, getAllShows } from "../features/movies/movieSlice";
 import MovieCard from "./MovieCard";
-
 const MovieListing = () => {
+  const settings = {
+    dots: false,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 6,
+    slidesToScroll: 3,
+  };
+
   const movies = useSelector(getAllMovies);
   const shows = useSelector(getAllShows);
   let renderMovies,
@@ -20,9 +27,7 @@ const MovieListing = () => {
     );
   renderShows =
     shows.Response === "True" ? (
-      shows.Search.map((show, index) => (
-        <MovieCard key={index} data={show} />
-      ))
+      shows.Search.map((show, index) => <MovieCard key={index} data={show} />)
     ) : (
       <div className="shows-error">
         <h3>{shows.Error}</h3>
